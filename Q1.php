@@ -2,7 +2,7 @@
 
 function getUserArticles(int $user_id, int $article_id)
 { 
-    if ($user_id && $article_id) {
+    if (!($user_id && $article_id)) {
         return null;
     } elseif (empty($user = User::getUser($user_id))) {
         throw new AlertException("查無此帳號!", '/');
